@@ -20,7 +20,7 @@ This project is a RESTful API for a Task Management System built with Laravel. I
 - PHP 8.1+
 - Composer
 - Laravel 11.x
-- MySQL 
+- MySQL 8.0+
 
 ## Installation
 
@@ -53,7 +53,7 @@ The collection includes details on:
 
 ## Authentication
 
-This API uses [Laravel Sanctum/JWT/Laravel Passport] for authentication. To access protected endpoints, you need to include a valid authentication token in the request headers.
+This API uses [PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject] for authentication. To access protected endpoints, you need to include a valid JWT token in the request headers.
 
 ## Testing
 
@@ -62,13 +62,14 @@ To run the tests, use the following command:
 
 ## API Endpoints
 
-- POST /api/register - Register a new user
-- POST /api/login - Login and receive an authentication token
+- POST /api/auth/signup - Register a new user
+- POST /api/auth/login - Login and receive an authentication token
+- POST /api/auth/logout - Logout and clear authentication token
 - GET /api/tasks - Get all tasks for the authenticated user
-- POST /api/tasks - Create a new task
+- POST /api/tasks/create - Create a new task
 - GET /api/tasks/{id} - Get a specific task
-- PUT /api/tasks/{id} - Update a specific task
-- DELETE /api/tasks/{id} - Delete a specific task
+- PUT /api/tasks/update/{id} - Update a specific task
+- DELETE /api/tasks/delete/{id} - Delete a specific task
 
 For detailed information on request/response formats, please refer to the Postman collection.
 
